@@ -339,7 +339,7 @@ Singleton {
             "description": Translation.tr("Online via %1 | %2's model").arg("OpenRouter").arg("DeepSeek"),
             "homepage": "https://openrouter.ai/deepseek/deepseek-r1:free",
             "endpoint": "https://openrouter.ai/api/v1/chat/completions",
-            "model": "deepseek/deepseek-r1:free",
+            "model": "deepseek/deepseek-r1",
             "requires_key": true,
             "key_id": "openrouter",
             "key_get_link": "https://openrouter.ai/settings/keys",
