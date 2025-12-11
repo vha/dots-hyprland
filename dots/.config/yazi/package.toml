@@ -1,0 +1,49 @@
+[[plugin.deps]]
+use = "pirafrank/what-size"
+rev = "d896656"
+hash = "62251f94eb67648d42cdfcfb8be0fad2"
+
+[[plugin.deps]]
+use = "uhs-robert/recycle-bin"
+rev = "53ad17c"
+hash = "80221fe740a6f251d35845d29391bea7"
+
+[[plugin.deps]]
+use = "Deepak22903/kdeconnect-send"
+rev = "7d9098d"
+hash = "498bda3e06d793f79fe1df7b28fc14a1"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "19dc890"
+hash = "3996fc74044bc44144b323686f887e1"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "19dc890"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
+
+[[plugin.deps]]
+use = "DreamMaoMao/bookmarks"
+rev = "fa65ba2"
+hash = "cbce5906c0644dedda0c40bfc95c2678"
+
+[[plugin.deps]]
+use = "boydaihungst/mediainfo"
+rev = "af8bdf4"
+hash = "43fa632820cc91919c4e713652140b48"
+
+[[flavor.deps]]
+use = "kmlupreti/ayu-dark"
+rev = "648a178"
+hash = "1a8af82f6246942bd700316a16c4e14a"
+
+[[flavor.deps]]
+use = "gosxrgxx/flexoki-dark"
+rev = "28e1977"
+hash = "9dbbb64ea20f9f1271c31951dea55c7b"
+
+[[flavor.deps]]
+use = "956MB/vscode-dark-plus"
+rev = "113cc48"
+hash = "fb2175ea2b78bff55fa83d0661d77407"
