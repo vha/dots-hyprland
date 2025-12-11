@@ -22,11 +22,8 @@ from pathlib import Path
 # Configuration: Add or modify entries here
 # Format: (source_path, target_name_inside_tempdir)
 CONFIG_FILES = [
-    ("$HOME/.config/hypr/custom/general.conf", "general.conf"),
-    ("$HOME/.config/hypr/custom/keybinds.conf", "keybinds.conf"),
-    ("$HOME/.config/hypr/custom/execs.conf", "Autostart.conf"),
-    ("$HOME/.config/hypr/custom/env.conf", "env.conf"),
-    ("$HOME/.config/hypr/custom/rules.conf", "rules.conf"),
+    ("$HOME/.config/hypr/custom", "hypr_custom"),
+    ("$HOME/.config/hypr/hyprland", "hypr_defaults"),
     ("$HOME/.config/hypr/monitors.conf", "monitors.conf"),
     ("$HOME/.config/hypr/workspaces.conf", "workspaces.conf"),
     ("$HOME/.config/fish/config.fish", "fish_config.fish"),

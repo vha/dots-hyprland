@@ -1,10 +1,13 @@
 pragma ComponentBehavior: Bound
 
+import Quickshell
+import Quickshell.Io
 import qs.services
 import qs.modules.common
 import qs.modules.common.widgets
 import QtQuick
 import QtQuick.Layouts
+import qs.modules.common.functions as CF
 
 Item {
     id: root
@@ -77,9 +80,46 @@ Item {
       Config.options.cheatsheet.useMouseSymbol ? mouseSymbolMap : {},
     )
 
+    FloatingActionButton {
+        id: keybindingsButton
+        anchors {
+            top: parent.top
+            left: row.right
+            topMargin: 20
+            rightMargin: 20
+        }
+        expanded: true
+        property string path: `${Directories.config}/hypr/custom/keybinds.conf`
+        property bool justCopied: false
+        iconText: justCopied ? "check" : "edit"
+        buttonText: justCopied ? Translation.tr("Path copied") : Translation.tr("Edit keybinds")
+        
+        downAction: () => {
+            Qt.openUrlExternally(keybindingsButton.path);
+        }
+        altAction: () => {
+            Quickshell.clipboardText = CF.FileUtils.trimFileProtocol(keybindingsButton.path);
+            keybindingsButton.justCopied = true;
+            revertTextTimer.restart()
+        }
+
+        Timer {
+            id: revertTextTimer
+            interval: 1500
+            onTriggered: {
+                keybindingsButton.justCopied = false;
+            }
+        }
+
+        StyledToolTip {
+            text: Translation.tr("Open the custom keybindings config file\nAlternatively right-click to copy path")
+        }
+    }
+
     Row { // Keybind columns
         id: row
         spacing: root.spacing
+        anchors.centerIn: parent
         
         Repeater {
             model: keybinds.children
