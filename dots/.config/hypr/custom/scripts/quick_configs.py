@@ -23,7 +23,10 @@ from pathlib import Path
 # Format: (source_path, target_name_inside_tempdir)
 CONFIG_FILES = [
     ("$HOME/.config/hypr/custom", "hypr_custom"),
-    ("$HOME/.config/hypr/hyprland", "hypr_defaults"),
+    ("$HOME/.config/hypr/hyprland", "hypr_defaults_dont_edit"),
+    ("$HOME/.config/hypr/hyprlock.conf", "hyprlock.conf"),
+    ("$HOME/.config/hypr/hypridle.conf", "hypridle.conf"),
+    ("$HOME/.config/hypr/hyprland.conf", "hyprland.conf"),
     ("$HOME/.config/hypr/monitors.conf", "monitors.conf"),
     ("$HOME/.config/hypr/workspaces.conf", "workspaces.conf"),
     ("$HOME/.config/fish/config.fish", "fish_config.fish"),

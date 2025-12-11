@@ -124,7 +124,7 @@ Item {
                     Layout.bottomMargin: 10
                     IconImage {
                         implicitSize: 80
-                        source: `${Directories.config}/quickshell/ii/assets/icons/hyprland-symbolic.svg`
+                        source: Quickshell.iconPath("hyprland")
                     }
                     ColumnLayout {
                         Layout.alignment: Qt.AlignVCenter
