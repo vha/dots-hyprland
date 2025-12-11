@@ -73,11 +73,10 @@ ContentPage {
                 onClicked: {
                     Qt.openUrlExternally(SystemInfo.privacyPolicyUrl)
                 }
-            }
-            
+            }            
         }
-
     }
+    
     ContentSection {
         icon: "folder_managed"
         title: Translation.tr("Dotfiles")

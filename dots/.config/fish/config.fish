@@ -10,6 +10,11 @@ if status is-interactive # Commands to run in interactive sessions can go here
 
     # No greeting
     set fish_greeting
+    # set -l editor vim
+    set -Ux EDITOR $editor
+    set -Ux SUDO_EDITOR $editor
+    set -Ux VISUAL $editor
+    set -Ux SYSTEMD_EDITOR $editor
 
     # Use starship
     starship init fish | source
@@ -22,5 +27,18 @@ if status is-interactive # Commands to run in interactive sessions can go here
     alias ls 'eza --icons'
     alias clear "printf '\033[2J\033[3J\033[1;1H'"
     alias q 'qs -c ii'
-    
+    alias hc '$EDITOR $HOME/.config/hypr'
+    alias hce '$EDITOR $HOME/.config/hypr/custom/env.conf'
+    alias hcx '$EDITOR $HOME/.config/hypr/custom/execs.conf'
+    alias hcg '$EDITOR $HOME/.config/hypr/custom/general.conf'
+    alias hcr '$EDITOR $HOME/.config/hypr/custom/rules.conf'
+    alias hck '$EDITOR $HOME/.config/hypr/custom/keybinds.conf'
+    alias hcw '$EDITOR $HOME/.config/hypr/workspaces.conf'
+    alias hcm '$EDITOR $HOME/.config/hypr/monitors.conf'
+    alias qc '$EDITOR $HOME/.config/quickshell'
+    alias iic '$EDITOR $HOME/.config/illogical-impulse/config.json'
+    alias fc '$EDITOR $HOME/.config/fish/config.fish'
+    alias zc '$EDITOR $HOME/.zshrc'
+    alias bc '$EDITOR $HOME/.bashrc'
+    alias c 'cd $HOME/.config'
 end
