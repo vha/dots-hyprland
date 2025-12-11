@@ -21,6 +21,10 @@ Scope { // Scope
             "icon": "experiment",
             "name": Translation.tr("Elements")
         },
+        {
+            "icon": "link",
+            "name": Translation.tr("Links")
+        },
     ]
 
     Loader {
@@ -162,6 +166,7 @@ Scope { // Scope
 
                         CheatsheetKeybinds {}
                         CheatsheetPeriodicTable {}
+                        CheatsheetLinks {}
                     }
                 }
             }
