@@ -1,0 +1,56 @@
+[[input.prepend_keymap]]
+on   = "<Esc>"
+run  = "close"
+desc = "Cancel input"
+
+[[tasks.prepend_keymap]]
+on   = "<delete>"
+run  = "cancel"
+desc = "Cancel a task"
+
+[[tasks.prepend_keymap]]
+on   = "<enter>"
+run  = "inspect"
+desc = "Inspect a task"
+
+[mgr]
+linemode = "size_and_mtime"
+prepend_keymap = [
+    # Bookmarks
+    { on = [ "m" ], run = "plugin bookmarks -- save", desc = "Save current position as a bookmark" },
+    { on = [ "'" ], run = "plugin bookmarks -- jump", desc = "Jump to a bookmark" },
+    { on = [ "b", 'd' ], run = "plugin bookmarks -- delete", desc = "Delete a bookmark" },
+
+    # Navigation
+    { on = "<home>", run = "arrow top", desc = "Go to top" },
+    { on = "<end>", run = "arrow bot", desc = "Go to bottom" },
+    { on = "º", run = "plugin relative-motions", desc = "Trigger a new relative motion" },
+    { on = "<enter>", run = "plugin --sync smart-enter", desc = "Enter the child directory, or open the file" },
+    { on = "<right>", run = "plugin --sync smart-enter", desc = "Enter the child directory, or open the file" },
+    { on = "<C-f>", run = 'search --insensitive --via=fd', desc = "fd search" },
+    { on = "<C-g>", run = 'search --insensitive --via=rg', desc = "Ripgrep search" },
+    { on = "<C-a>", run = "toggle_all", desc = "Select all toggle" },
+    { on = "<A-A>", run = "escape --select", desc = "Deselect all from all directories" },
+
+    # Util
+    { on = "S", run = "shell \"$SHELL\" --block", desc = "Suspend Yazi and drop into shell, then return" },
+    { on = "q", run = "close", desc = "Close the current tab, or quit if it's last" },
+    { on = "<C-s>", run = "plugin kdeconnect-send", desc = "Send selected files via KDE Connect" },
+    { on = "<delete>", run = "remove --force", desc = "Send to trash without confirmation" },
+    { on = ["d", "c"], run = "plugin what-size", desc = "Calculates ize of selection" },
+    { on = "R", run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
+    { on = "I", run = "rename --hovered --cursor=start", desc = "Rename hovered file (prepend)" },
+    { on = "a", run = "rename --hovered --cursor=before_ext", desc = "Rename hovered file (append)" },
+    { on = "T", run = "create", desc = "Create file or directory" },
+
+    # { on = "º", run = "spot", desc = "Spot hovered file" },
+    { on = "<A-right>", run = "tab_switch 1 --relative", desc = "Switch to next tab" },
+    { on = "<A-left>", run = "tab_switch -1 --relative", desc = "Switch to previous tab" },
+
+    { on = "Z", run = "shell --interactive ~/.local/bin/append-suffix.sh %s ", desc = "Append suffix (prompt)" },
+    { on = ["z", "a", "a"], run = "plugin compress", desc = "Compress selected files" },
+    { on = ["z", "a", "p"], run = "plugin compress -p", desc = "Compress selected files (password)" },
+    { on = ["z", "a", "h"], run = "plugin compress -ph", desc = "Compress selected files (password+header)" },
+    { on = ["z", "a", "l"], run = "plugin compress -l", desc = "Compress selected files (compression level)" },
+    { on = ["z", "a", "u"], run = "plugin compress -phl", desc = "Compress selected files (password+header+level)" },
+]
