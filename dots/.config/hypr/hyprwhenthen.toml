@@ -1,0 +1,24 @@
+# https://filipmikina.com/blog/hyprwhenthen
+#
+# Common Event Types:
+#
+# windowtitlev2 - Window title changes
+# openwindow - New window opens
+# closewindow - Window closes
+# workspace - Workspace changes
+# focusedmon - Monitor focus changes
+# activewindow - Active window changes
+# fullscreen - Fullscreen state changes
+# createworkspace / destroyworkspace - Workspace lifecycle
+# moveworkspace - Workspace moves between monitors
+
+# Complete list of events: https://wiki.hypr.land/IPC/
+
+[general]
+timeout = "5s"
+
+# Float Google login window automatically
+[[handler]]
+on = "windowtitlev2"
+when = "(.*),Sign In - Google Account"
+then = "$HOME/.config/hypr/scripts/smartfloat.py apply $REGEX_GROUP_1 center"
