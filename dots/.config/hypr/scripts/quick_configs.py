@@ -22,7 +22,7 @@ from pathlib import Path
 # Configuration: Add or modify entries here
 # Format: (source_path, target_name_inside_tempdir)
 CONFIG_FILES = [
-    ("$HOME/.config/illogical-impulse/config.json"),
+    ("$HOME/.config/illogical-impulse/config.json", "illogical-impulse_config.json"),
     ("$HOME/.config/hypr/custom", "hypr_custom"),
     ("$HOME/.config/hypr/hyprland", "hypr_defaults_dont_edit"),
     ("$HOME/.config/hypr/hyprlock.conf", "hyprlock.conf"),
