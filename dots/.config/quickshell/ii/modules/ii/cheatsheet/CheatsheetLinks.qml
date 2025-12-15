@@ -36,7 +36,7 @@ Item {
             Process {
                 id: quickConfigs
                 running: false
-                command: [`${Directories.config}/hypr/custom/scripts/quick_configs.py`, "--editor", "code"]
+                command: [`${Directories.config}/hypr/scripts/quick_configs.py`, "--editor", "code"]
             }
 
             StyledToolTip {
