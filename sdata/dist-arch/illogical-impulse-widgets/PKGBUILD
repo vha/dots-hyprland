@@ -15,4 +15,5 @@ depends=(
   translate-shell
   wlogout
   libqalculate
+  yazi
 )
