@@ -49,13 +49,7 @@ edit = [
 ]
 
 [open]
-rules = [
-	{ mime = "text/*", use = "edit" },
-	{ mime = "video/*", use = "play" },
-	{ mime = "image/*", use = "open" },
-
-	{ name = "*.json", use = "edit" },
-	{ name = "*.jsonc", use = "edit" },
+prepend_rules = [
 	{ name = "*.kra", use = "open" },
 	{ name = "*.html", use = [ "open", "edit" ] },
 ]
