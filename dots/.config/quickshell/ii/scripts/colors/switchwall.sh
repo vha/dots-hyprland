@@ -222,7 +222,7 @@ switch() {
             local video_path="$imgpath"
             monitors=$(hyprctl monitors -j | jq -r '.[] | .name')
             for monitor in $monitors; do
-                mpvpaper -o "$VIDEO_OPTS" "$monitor" "$video_path" &
+                nohup mpvpaper -o "$VIDEO_OPTS" "$monitor" "$video_path" >/dev/null
                 sleep 0.1
             done
 
