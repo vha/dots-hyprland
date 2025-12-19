@@ -22,6 +22,10 @@ if status is-interactive # Commands to run in interactive sessions can go here
         cat ~/.local/state/quickshell/user/generated/terminal/sequences.txt
     end
 
+    # pyenv
+    pyenv init - fish | source
+
+    # Key bindings
     bind alt-backspace backward-kill-word
 
     # Aliases
