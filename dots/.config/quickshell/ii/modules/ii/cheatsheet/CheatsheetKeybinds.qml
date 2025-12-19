@@ -96,7 +96,7 @@ Item {
         id: keybindingsButton
         anchors {
             top: parent.top
-            right: scrollView.right
+            right: root.right
             topMargin: 20
             rightMargin: 20
         }
