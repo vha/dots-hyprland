@@ -27,6 +27,7 @@ Scope { // Scope
             "name": Translation.tr("Links")
         },
     ]
+    property int selectedTab: 0
 
     Loader {
         id: cheatsheetLoader

@@ -8,6 +8,8 @@ import qs.modules.common.widgets
 import QtQuick
 import QtQuick.Layouts
 import qs.modules.common.functions as CF
+import QtQuick.Controls
+import QtQuick.Window
 
 Item {
     id: root
@@ -15,7 +17,7 @@ Item {
     property real spacing: 20
     property real titleSpacing: 7
     property real padding: 4
-    implicitWidth: row.implicitWidth + padding * 2
+    implicitWidth: Math.min(row.implicitWidth + padding * 2, Screen.width * 0.8)
     implicitHeight: row.implicitHeight + padding * 2
     // Excellent symbol explaination and source :
     // http://xahlee.info/comp/unicode_computing_symbols.html
@@ -71,7 +73,7 @@ Item {
         "Hash": "#",
         "Return": "Enter",
         // "Shift": "",
-      },
+    },
       !!Config.options.cheatsheet.superKey ? {
           "Super": Config.options.cheatsheet.superKey,
       }: {},
@@ -116,13 +118,69 @@ Item {
         }
     }
 
-    Row { // Keybind columns
-        id: row
-        spacing: root.spacing
+    // Placeholder when no keybinds are loaded
+    StyledText {
         anchors.centerIn: parent
+        visible: !keybinds?.children || keybinds.children.length === 0
+        text: Translation.tr("No keybinds found\n\nMake sure your Hyprland config has properly formatted keybind comments")
+        font.pixelSize: Appearance.font.pixelSize.normal
+        color: Appearance.colors.colSubtext
+        horizontalAlignment: Text.AlignHCenter
+    }
+
+    ScrollView {
+        id: scrollView
+        width: Screen.width
+        height: row.implicitHeight
+        contentWidth: row.implicitWidth
+        contentHeight: row.implicitHeight
+        clip: true
+        bottomPadding: 20
+        leftPadding: 20
+
+        ScrollBar.vertical: ScrollBar {
+            policy: ScrollBar.AsNeeded
+            width: 8
+            background: Rectangle {
+                color: Appearance.colors.colLayer1
+                radius: 8
+            }
+            contentItem: Rectangle {
+                color: Appearance.colors.colAccent
+                radius: 8
+            }
+            size: frame.height / content.height
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+        }
+
+        ScrollBar.horizontal: ScrollBar {
+            policy: ScrollBar.AsNeeded
+            height: 8
+            background: Rectangle {
+                color: Appearance.colors.colLayer1
+                radius: 8
+                border.color: Appearance.colors.colLayer2
+                border.width: 1
+            }
+            contentItem: Rectangle {
+                color: Appearance.colors.colAccent
+                radius: 8
+            }
+            size: frame.width / content.width
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+        }
+
+        Row { // Keybind columns
+            id: row
+            spacing: root.spacing
+            anchors.centerIn: parent
+            visible: keybinds?.children && keybinds.children.length > 0
         
         Repeater {
-            model: keybinds.children
+            model: keybinds?.children || []
             
             delegate: Column { // Keybind sections
                 spacing: root.spacing
@@ -250,6 +308,7 @@ Item {
             }
             
         }
+    }
     }
     
 }
