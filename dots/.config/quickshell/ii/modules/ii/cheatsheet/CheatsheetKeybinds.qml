@@ -82,14 +82,25 @@ Item {
       Config.options.cheatsheet.useMouseSymbol ? mouseSymbolMap : {},
     )
 
+    // Placeholder when no keybinds are loaded
+    StyledText {
+        anchors.centerIn: parent
+        visible: !keybinds?.children || keybinds.children.length === 0
+        text: Translation.tr("No keybinds found\n\nMake sure your Hyprland config has properly formatted keybind comments")
+        font.pixelSize: Appearance.font.pixelSize.normal
+        color: Appearance.colors.colSubtext
+        horizontalAlignment: Text.AlignHCenter
+    }
+     
     FloatingActionButton {
         id: keybindingsButton
         anchors {
             top: parent.top
-            left: row.right
+            right: scrollView.right
             topMargin: 20
             rightMargin: 20
         }
+
         expanded: true
         property string path: `${Directories.config}/hypr/custom/keybinds.conf`
         property bool justCopied: false
@@ -118,16 +129,6 @@ Item {
         }
     }
 
-    // Placeholder when no keybinds are loaded
-    StyledText {
-        anchors.centerIn: parent
-        visible: !keybinds?.children || keybinds.children.length === 0
-        text: Translation.tr("No keybinds found\n\nMake sure your Hyprland config has properly formatted keybind comments")
-        font.pixelSize: Appearance.font.pixelSize.normal
-        color: Appearance.colors.colSubtext
-        horizontalAlignment: Text.AlignHCenter
-    }
-
     ScrollView {
         id: scrollView
         width: Screen.width
@@ -137,6 +138,7 @@ Item {
         clip: true
         bottomPadding: 20
         leftPadding: 20
+        
 
         ScrollBar.vertical: ScrollBar {
             policy: ScrollBar.AsNeeded
