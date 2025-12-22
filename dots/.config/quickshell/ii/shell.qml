@@ -107,10 +107,8 @@ ShellRoot {
     // Panel families
     property list<string> families: ["ii", "waffle"]
     property var panelFamilies: ({
-
-    "ii": ["iiBar", "iiBackground", "iiCheatsheet", "iiDock", "iiLock", "iiDisplayMode", "iiMediaControls", "iiNotificationPopup", "iiOnScreenDisplay", "iiOnScreenKeyboard", "iiOverlay", "iiOverview", "iiPolkit", "iiRegionSelector", "iiScreenCorners", "iiSessionScreen", "iiSidebarLeft", "iiSidebarRight", "iiVerticalBar", "iiWallpaperSelector"],
-    "waffle": ["wActionCenter", "wBar", "wBackground", "wLock", "wNotificationCenter", "wOnScreenDisplay", "wTaskView", "wPolkit", "wScreenSnip", "wSessionScreen", "wStartMenu", "iiCheatsheet", "iiNotificationPopup", "iiOnScreenKeyboard", "iiOverlay", "iiRegionSelector", "iiWallpaperSelector"],
-
+        "ii": ["iiBar", "iiBackground", "iiCheatsheet", "iiDock", "iiLock", "iiDisplayMode", "iiMediaControls", "iiNotificationPopup", "iiOnScreenDisplay", "iiOnScreenKeyboard", "iiOverlay", "iiOverview", "iiPolkit", "iiRegionSelector", "iiScreenCorners", "iiSessionScreen", "iiSidebarLeft", "iiSidebarRight", "iiVerticalBar", "iiWallpaperSelector"],
+        "waffle": ["wActionCenter", "wBar", "wBackground", "wLock", "wNotificationCenter", "wOnScreenDisplay", "wTaskView", "wPolkit", "wScreenSnip", "wSessionScreen", "wStartMenu", "iiCheatsheet", "iiNotificationPopup", "iiOnScreenKeyboard", "iiOverlay", "iiRegionSelector", "iiWallpaperSelector"],
     })
     function cyclePanelFamily() {
         const currentIndex = families.indexOf(Config.options.panelFamily)
