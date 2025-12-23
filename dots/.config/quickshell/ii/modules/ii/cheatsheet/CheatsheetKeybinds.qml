@@ -129,58 +129,12 @@ Item {
         }
     }
 
-    ScrollView {
-        id: scrollView
-        width: Screen.width
-        height: row.implicitHeight
-        contentWidth: row.implicitWidth
-        contentHeight: row.implicitHeight
-        clip: true
-        bottomPadding: 20
-        leftPadding: 20
-        
-
-        ScrollBar.vertical: ScrollBar {
-            policy: ScrollBar.AsNeeded
-            width: 8
-            background: Rectangle {
-                color: Appearance.colors.colLayer1
-                radius: 8
-            }
-            contentItem: Rectangle {
-                color: Appearance.colors.colAccent
-                radius: 8
-            }
-            size: frame.height / content.height
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-        }
-
-        ScrollBar.horizontal: ScrollBar {
-            policy: ScrollBar.AsNeeded
-            height: 8
-            background: Rectangle {
-                color: Appearance.colors.colLayer1
-                radius: 8
-                border.color: Appearance.colors.colLayer2
-                border.width: 1
-            }
-            contentItem: Rectangle {
-                color: Appearance.colors.colAccent
-                radius: 8
-            }
-            size: frame.width / content.width
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.bottom: parent.bottom
-        }
-
-        Row { // Keybind columns
-            id: row
-            spacing: root.spacing
-            anchors.centerIn: parent
-            visible: keybinds?.children && keybinds.children.length > 0
-        
+    Row { // Keybind columns
+        id: row
+        spacing: root.spacing
+        anchors.centerIn: parent
+        visible: keybinds?.children && keybinds.children.length > 0
+    
         Repeater {
             model: keybinds?.children || []
             
@@ -310,7 +264,5 @@ Item {
             }
             
         }
-    }
-    }
-    
+    }    
 }
